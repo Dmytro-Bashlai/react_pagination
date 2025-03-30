@@ -42,12 +42,8 @@ export const Pagination: React.FC<Props> = ({
         <a
           data-cy="prevLink"
           className="page-link"
-          href={`?page=${currentPage - 1}&perPage=${perPage}`}
           aria-disabled={currentPage === 1}
-          onClick={e => {
-            e.preventDefault();
-            handlePrevPage();
-          }}
+          onClick={handlePrevPage}
         >
           «
         </a>
@@ -58,16 +54,9 @@ export const Pagination: React.FC<Props> = ({
           <li
             key={page}
             className={cn('page-item', { active: page === currentPage })}
-            onClick={e => {
-              e.preventDefault();
-              handlePageChange(page);
-            }}
+            onClick={() => handlePageChange(page)}
           >
-            <a
-              data-cy="pageLink"
-              className="page-link"
-              href={`?page=${page}&perPage=${perPage}`}
-            >
+            <a data-cy="pageLink" className="page-link">
               {page}
             </a>
           </li>
@@ -78,12 +67,8 @@ export const Pagination: React.FC<Props> = ({
         <a
           data-cy="nextLink"
           className="page-link"
-          href={`?page=${currentPage + 1}&perPage=${perPage}`}
           aria-disabled={currentPage === pageCount}
-          onClick={e => {
-            e.preventDefault();
-            handleNextPage();
-          }}
+          onClick={handleNextPage}
         >
           »
         </a>

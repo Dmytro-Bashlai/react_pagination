@@ -1,7 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css';
-import { getNumbers } from './utils';
-import { Pagination } from './components/Pagination';
 import {
   BrowserRouter,
   Routes,
@@ -9,6 +6,9 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router';
+import './App.css';
+import { getNumbers } from './utils';
+import { Pagination } from './components/Pagination';
 
 const TOTAL_ITEMS = 42;
 
@@ -79,7 +79,6 @@ const ItemsPage = () => {
         currentPage={page}
         onPageChange={(currentPage: number): void => {
           setPage(currentPage);
-          getItems(startItem, endItem);
         }}
       />
 
@@ -100,7 +99,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/?" element={<ItemsPage />} />
+        <Route path="/" element={<ItemsPage />} />
       </Routes>
     </BrowserRouter>
   );
